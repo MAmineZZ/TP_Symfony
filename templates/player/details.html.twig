@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-3">
+			<img src="{{ asset('img/' ~ entity.portrait) }}" class="img-fluid" alt="">
+		</div>
+		<div class="col-9">
+			<h2>{{ entity.firstname ~ ' ' ~ entity.lastname }}</h2>
+			<p>Birthday : {{ entity.birthday | date('d/m/Y') }}</p>
+			<p>Number : {{ entity.number }}</p>
+			<p>Team : {{ entity.team.name }}</p>
+			{% if entity.nationalTeam.name != null  %}
+				<p> National Team : <img src="{{ asset('img/flags/' ~ entity.nationalTeam.flag) }}" class="rounded" style="max-width:10%"height="10%"  >  </p>
+
+
+			{% endif %}
+
+			<p>
+				<a href="{{ url('player.index') }}" class="btn btn-secondary">Back to players</a>
+			</p>
+		</div>
+	</div>
+{% endblock %}

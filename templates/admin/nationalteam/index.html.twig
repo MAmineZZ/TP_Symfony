@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h2>National Teams</h2>
+    <p>
+        <a href="{{ url('admin.nationalteam.form.add') }}" class="btn btn-info">Add National team</a>
+    </p>
+
+
+
+    {# affichage message flush #}
+    {% for notice in app.flashes('notice') %}
+        <p class="alert alert-success">{{ notice }}</p>
+    {% endfor %}
+
+    <table class="table table-stripped">
+        <tr>
+            <th>Country Name</th>
+            <th>Flag</th>
+            <th></th>
+        </tr>
+        {% for natteams in entities %}
+            <tr>
+                <td>{{ natteams.name | title }}</td>
+                <td> <img src="{{ asset('img/flags/' ~ natteams.flag) }}" class="rounded" style="max-width:10%"height="10%"  ></td>
+                <td>
+                    <a href="{{ url('admin.nationalteam.form.edit',{id: natteams.id}) }}" class="btn btn-warning">Edit National team</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+ {% block javascripts %}
+     <script src="{{ asset('js/admin.js') }}" defer></script>
+ {% endblock%}

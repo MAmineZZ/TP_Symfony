@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h2>Players</h2>
+    <form novalidate="novalidate"
+    {{ form_start(form, {attr: {novalidate: 'novalidate'} }) }}
+    <p>
+        {{ form_label(form.firstname,'First Name : ') }}
+        {{ form_widget(form.firstname) }}
+        {{ form_errors(form.firstname) }}
+    </p>
+    <p>
+        {{ form_label(form.lastname,'Last Name : ') }}
+        {{ form_widget(form.lastname) }}
+        {{ form_errors(form.lastname) }}
+    </p>
+    <p>
+        {{ form_label(form.birthday,'Birthday : ') }}
+        {{ form_widget(form.birthday) }}
+        {{ form_errors(form.birthday) }}
+    </p>
+    <p>
+        {{ form_label(form.portrait,'Portrait : ') }}
+        {{ form_widget(form.portrait) }}
+        {{ form_errors(form.portrait) }}
+    </p>
+    <p>
+        {{ form_label(form.number,'Number : ') }}
+        {{ form_widget(form.number) }}
+        {{ form_errors(form.number) }}
+    </p>
+    <p>
+        <input type="submit" class="btn btn-primary">
+    </p>
+    {{ form_end(form) }}
+
+{% endblock %}
